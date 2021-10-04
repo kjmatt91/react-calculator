@@ -1,39 +1,52 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
+import '../styles/calculator.css'
 
 const Calculate = () => {
 
     const [calculation, setCalculation] = useState('')
-    const sum = () => {
-        const field1 = document.getElementById('num1').value
-        const field2 = document.getElementById('num2').value
+        const num1 = document.getElementById('num1').value
+        const num2 = document.getElementById('num2').value
         const operator = document.getElementById('operator').value
 
-        if(!isNaN(total)) {
             switch(operator) {
                 case '+':
-                    setCalculation(field1) + (field2)
+                    setCalculation(num1 + num2)
                     break
                 case '-':
-                    setCalculation(field1) - (field2)
+                    setCalculation(num1 - num2)
                     break
                 case '*':
-                    setCalculation(field1) * (field2)
+                    setCalculation(num1 * num2)
                     break
                 case '/':
-                    setCalculation(field1) / (field2)
+                    setCalculation(num1 / num2)
                     break
                 default:
                     setCalculation(0)
             }
-        } else {
-            setCalculation('Please Enter Valid Numbers')
-        }
-    }
-    return (
-        <div className="page">
+            if(!isNaN(calculation)) {
+                return (
+                    <>
+                    <div className="calculator">
+                        <input type="number" id="num1" />
+                        <select id="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                        </select>
+                        <input type="number" id="num2" />
+                        <button onClick={Calculate}>Calculate</button>
+                        <input type="number" defaultValue={calculation} disabled />
+                    </div>
+                    </>
+                )
             
-        </div>
-    )
+            } else {
+                return(
+                    Error('Input was not a valid number')
+                )
+            }
     
 
 }

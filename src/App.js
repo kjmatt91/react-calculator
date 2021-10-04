@@ -1,13 +1,13 @@
 import './App.css';
-import Calculate from './components/calculator'
-import Input from './components/inputs'
+import Calculator from './components/calculator'
+import Title from './components/title'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Hello
-        <Calculate/>
-        <Input/>
+      <header className="App-header">
+        <Calculator/>
+        <Title/>
       </header>
     </div>
   );
